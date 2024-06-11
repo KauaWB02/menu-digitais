@@ -2,8 +2,11 @@ import { Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LaandingComponent } from './laanding/laanding.component';
+import { AdminFormComponent } from './modules/admin/components/admin-form/admin-form.component';
 
 export const routes: Routes = [
+  { path: '-', pathMatch: 'full', redirectTo: 'inicio' }, // Esta rota deve estar por último!
+
   {
     path: '',
     // canActivate: [NoAuthGuard],
@@ -39,14 +42,17 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: 'inicio',
+        component: AdminFormComponent,
+      },
+      {
         path: 'usuarios',
         // canMatch: [RoleGuard],
         data: {
           title: 'Usuários',
           menuKey: 'USERS',
         },
-        loadChildren: () =>
-          import('./modules/users/users.module').then((m) => m.UsersModule),
+        loadChildren: () => import('./modules/users/users.module').then((m) => m.UsersModule),
       },
     ],
   },

@@ -1,2 +1,2 @@
-<menu-digital-empty *ngIf="layout === 'empty'"></menu-digital-empty>
-<menu-digital-sidebar *ngIf="layout === 'sidebar'"></menu-digital-sidebar>
+<menu-digital-empty *ngIf="layout === 'empty'" [ngClass]="darkModeService.darkModeSignal()"></menu-digital-empty>
+<menu-digital-sidebar *ngIf="layout === 'sidebar'" [ngClass]="darkModeService.darkModeSignal()"></menu-digital-sidebar>
