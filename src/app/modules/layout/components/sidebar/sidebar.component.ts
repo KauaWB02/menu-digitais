@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DarkModeService } from '../../../shared/services/dark-mode/dark-mode.service';
-import { SharedModule } from '../../../shared/shared.module';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { DarkModeService } from '../../../../shared/services/dark-mode/dark-mode.service';
 
 @Component({
   selector: 'menu-digital-sidebar',
   standalone: true,
-  imports: [RouterOutlet, MatExpansionModule],
+  imports: [RouterOutlet],
   templateUrl: './sidebar.component.html',
 })
 export class SideBarComponent {

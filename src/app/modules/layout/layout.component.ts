@@ -4,7 +4,7 @@ import { EmptyComponent } from './components/empty/empty.component';
 import { ActivatedRoute } from '@angular/router';
 import { Layout } from './layout.type';
 import { CommonModule } from '@angular/common';
-import { DarkModeService } from '../shared/services/dark-mode/dark-mode.service';
+import { DarkModeService } from '../../shared/services/dark-mode/dark-mode.service';
 
 @Component({
   selector: 'menu-digital-layout',

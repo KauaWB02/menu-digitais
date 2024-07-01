@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
-import { LayoutComponent } from './layout/layout.component';
-import { LaandingComponent } from './laanding/laanding.component';
-import { AdminFormComponent } from './modules/admin/components/admin-form/admin-form.component';
+import { LayoutComponent } from './modules/layout/layout.component';
+import { LaandingComponent } from './modules/laanding/laanding.component';
 
 export const routes: Routes = [
   { path: '-', pathMatch: 'full', redirectTo: 'inicio' }, // Esta rota deve estar por último!
@@ -19,18 +18,15 @@ export const routes: Routes = [
         path: '',
         component: LaandingComponent,
       },
-      {
-        path: 'login',
-        loadChildren: () => import('./modules/admin/admin.module').then((m) => m.AdminModule),
-      },
-      {
-        path: 'register',
-        loadChildren: () => import('./modules/admin/admin.module').then((m) => m.AdminModule),
-      },
-      {
-        path: 'esqueci-minha-senha',
-        loadChildren: () => import('./modules/admin/admin.module').then((m) => m.AdminModule),
-      },
+      // {
+      //   path: 'login',
+      // },
+      // {
+      //   path: 'register',
+      // },
+      // {
+      //   path: 'esqueci-minha-senha',
+      // },
     ],
   },
   {
@@ -41,10 +37,9 @@ export const routes: Routes = [
       layout: 'sidebar',
     },
     children: [
-      {
-        path: 'inicio',
-        component: AdminFormComponent,
-      },
+      // {
+      //   path: 'inicio',
+      // },
       {
         path: 'usuarios',
         // canMatch: [RoleGuard],
@@ -52,7 +47,10 @@ export const routes: Routes = [
           title: 'Usuários',
           menuKey: 'USERS',
         },
-        loadChildren: () => import('./modules/users/users.module').then((m) => m.UsersModule),
+        loadChildren: () =>
+          import('./modules/admin/users/users.module').then(
+            (m) => m.UsersModule
+          ),
       },
     ],
   },
